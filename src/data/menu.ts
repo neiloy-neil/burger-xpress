@@ -19,16 +19,16 @@ export type Category =
   | "appetizers"
   | "meatbox";
 
-export const CATEGORIES: { id: Category; label: string; emoji: string }[] = [
-  { id: "chicken-burger", label: "Chicken Burger", emoji: "🍗" },
-  { id: "beef-burger", label: "Beef Burger", emoji: "🥩" },
-  { id: "chefs-choice", label: "Chef's Choice", emoji: "👨‍🍳" },
-  { id: "subway-sandwich", label: "Subway & Sandwich", emoji: "🥪" },
-  { id: "rice-bowl", label: "Rice Bowl", emoji: "🍚" },
-  { id: "chowmein", label: "Chowmein", emoji: "🍜" },
-  { id: "nachos", label: "Nachos", emoji: "🧀" },
-  { id: "appetizers", label: "Appetizers", emoji: "🍟" },
-  { id: "meatbox", label: "Meatbox", emoji: "📦" },
+export const CATEGORIES: { id: Category; label: string; icon: string }[] = [
+  { id: "chicken-burger", label: "Chicken Burger", icon: "chicken" },
+  { id: "beef-burger", label: "Beef Burger", icon: "beef" },
+  { id: "chefs-choice", label: "Chef's Choice", icon: "chef" },
+  { id: "subway-sandwich", label: "Subway & Sandwich", icon: "sandwich" },
+  { id: "rice-bowl", label: "Rice Bowl", icon: "bowl" },
+  { id: "chowmein", label: "Chowmein", icon: "noodle" },
+  { id: "nachos", label: "Nachos", icon: "nachos" },
+  { id: "appetizers", label: "Appetizers", icon: "fries" },
+  { id: "meatbox", label: "Meatbox", icon: "box" },
 ];
 
 export const MENU_ITEMS: MenuItem[] = [

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import BXIcon from "@/components/BXIcon";
+import { HalalDot, FoodpandaIcon, BurgerIcon, StarRating } from "@/components/icons/AnimatedIcons";
 
 export default function Footer() {
   return (
@@ -7,10 +9,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <p className="text-2xl font-bold mb-3">
-              <span className="text-brand-red">Burger</span>
-              <span className="text-white"> Xpress</span>
-            </p>
+            <div className="flex items-center gap-2.5 mb-3">
+              <BXIcon size={32} />
+              <p className="text-xl font-black text-white tracking-tight">Burger Xpress</p>
+            </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Flavor Fusion. 100% Halal. Fresh ingredients, bold flavors, and
               7 branches across Dhaka serving you since day one.
@@ -20,7 +22,7 @@ export default function Footer() {
                 href="https://www.facebook.com/BurgerXpressbd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-brand-red transition-colors"
+                className="text-gray-500 hover:text-brand-blue transition-colors"
                 aria-label="Facebook"
               >
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -31,7 +33,7 @@ export default function Footer() {
                 href="https://www.instagram.com/burgerxpress.bd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-brand-red transition-colors"
+                className="text-gray-500 hover:text-brand-blue transition-colors"
                 aria-label="Instagram"
               >
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -41,7 +43,7 @@ export default function Footer() {
                 </svg>
               </a>
               <span className="inline-flex items-center gap-1.5 bg-green-900/40 text-green-400 border border-green-800 text-xs font-medium px-2.5 py-1 rounded-full ml-2">
-                🟢 100% Halal Certified
+                <HalalDot /> 100% Halal Certified
               </span>
             </div>
           </div>
@@ -80,7 +82,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"
                 >
-                  🐼 Foodpanda
+                  <FoodpandaIcon size={16} /> Foodpanda
                 </a>
               </li>
               <li>
@@ -90,13 +92,13 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-2"
                 >
-                  🍔 Munchies
+                  <BurgerIcon size={16} /> Munchies
                 </a>
               </li>
             </ul>
             <p className="text-sm font-semibold text-white uppercase tracking-wider mt-6 mb-3">Rating</p>
             <div className="flex items-center gap-1.5">
-              <span className="text-yellow-400 text-lg">★★★★★</span>
+              <StarRating size={14} />
               <span className="text-gray-300 text-sm font-medium">4.8 / 5</span>
             </div>
             <p className="text-gray-500 text-xs mt-1">2,000+ reviews on Foodpanda</p>

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BXIcon from "@/components/BXIcon";
+import { HalalDot } from "@/components/icons/AnimatedIcons";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -36,13 +38,13 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="text-2xl font-bold tracking-tight">
-            <span className="text-brand-red">Burger</span>
-            <span className="text-white"> Xpress</span>
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <BXIcon size={36} />
+          <span className="text-lg font-black tracking-tight text-white">
+            Burger Xpress
           </span>
-          <span className="hidden sm:block text-xs text-gray-400 border border-gray-600 rounded px-1.5 py-0.5">
-            🟢 HALAL
+          <span suppressHydrationWarning className="hidden sm:inline-flex items-center gap-1 text-xs text-gray-400 border border-gray-600 rounded px-1.5 py-0.5">
+            <HalalDot /> HALAL
           </span>
         </Link>
 
@@ -54,7 +56,7 @@ export default function Navbar() {
                 href={href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === href
-                    ? "text-brand-red"
+                    ? "text-brand-orange"
                     : "text-gray-300 hover:text-white"
                 }`}
               >
@@ -67,7 +69,7 @@ export default function Navbar() {
         {/* Order CTA */}
         <a
           href="/order"
-          className="hidden md:inline-flex items-center gap-1.5 bg-brand-red hover:bg-brand-red-dark text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
+          className="hidden md:inline-flex items-center gap-1.5 bg-brand-blue hover:bg-brand-blue-dark text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
         >
           Order Now
         </a>
@@ -99,7 +101,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0f0f0f] border-t border-white/10 px-4 pb-4">
+        <div className="nav-mobile-open md:hidden bg-[#0f0f0f]/98 backdrop-blur-md border-t border-white/10 px-4 pb-safe pb-4">
           <ul className="flex flex-col gap-1 pt-3">
             {NAV_LINKS.map(({ href, label }) => (
               <li key={href}>
@@ -108,7 +110,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
                     pathname === href
-                      ? "text-brand-red bg-white/5"
+                      ? "text-brand-orange bg-white/5"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -119,7 +121,7 @@ export default function Navbar() {
             <li className="pt-2">
               <a
                 href="/order"
-                className="block text-center bg-brand-red text-white text-sm font-semibold px-4 py-2.5 rounded-full"
+                className="block text-center bg-brand-blue text-white text-sm font-semibold px-4 py-2.5 rounded-full"
               >
                 Order Now
               </a>

@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
+import PWASetup from "@/components/PWASetup";
 
 export const metadata: Metadata = {
   title: {
@@ -24,8 +26,28 @@ export const metadata: Metadata = {
     siteName: "Burger Xpress",
     title: "Burger Xpress — Flavor Fusion",
     description: "100% Halal burgers across 7 branches in Dhaka. Rated 4.8★.",
+    images: [{ url: "/images/hero-cover.jpg", width: 1200, height: 630 }],
   },
-  icons: { icon: "/favicon.ico" },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Burger Xpress",
+  },
+  applicationName: "Burger Xpress",
+  formatDetection: { telephone: true },
+  icons: {
+    icon: [{ url: "/icons/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon" }],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1B3D8F",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -37,8 +59,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#0f0f0f] text-white">
         <Navbar />
+        <ScrollReveal />
         <main>{children}</main>
         <Footer />
+        <PWASetup />
       </body>
     </html>
   );

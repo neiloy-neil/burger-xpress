@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LOCATIONS } from "@/data/locations";
+import { BurgerIcon, FoodpandaIcon, HalalDot } from "@/components/icons/AnimatedIcons";
 
 export const metadata: Metadata = {
   title: "Locations",
@@ -11,26 +12,31 @@ export default function LocationsPage() {
   return (
     <div className="pt-16 min-h-screen">
       {/* Header */}
-      <div className="bg-[#111] border-b border-white/10 py-12 px-4 text-center">
-        <p className="text-brand-red text-sm font-semibold uppercase tracking-widest mb-2">
-          Branches
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-3">
-          Find Your Branch
-        </h1>
-        <p className="text-gray-400 max-w-xl mx-auto">
-          7 branches across Dhaka — dine in or order online from your nearest location.
-        </p>
+      <div className="bg-[#0a0a0a] border-b border-white/8 py-16 px-6 sm:px-10 lg:px-20">
+        <div className="max-w-screen-xl mx-auto">
+          <p className="text-brand-orange text-[10px] font-black uppercase tracking-[0.28em] mb-3">
+            7 Locations
+          </p>
+          <h1
+            className="font-display font-black text-white leading-tight mb-3"
+            style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)" }}
+          >
+            Find Your Branch
+          </h1>
+          <p className="text-gray-500 text-sm">
+            Dine in or order online from your nearest Burger Xpress.
+          </p>
+        </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-20 py-12">
         {/* Area pills */}
         <div className="flex flex-wrap gap-2 mb-10 justify-center">
           {LOCATIONS.map((loc) => (
             <a
               key={loc.id}
               href={`#${loc.id}`}
-              className="text-sm border border-white/20 text-gray-400 hover:text-white hover:border-brand-red/60 px-4 py-1.5 rounded-full transition-colors"
+              className="text-sm border border-white/20 text-gray-400 hover:text-white hover:border-brand-orange/60 px-4 py-1.5 rounded-full transition-colors"
             >
               {loc.area}
             </a>
@@ -43,11 +49,11 @@ export default function LocationsPage() {
             <div
               key={loc.id}
               id={loc.id}
-              className="bg-white/5 border border-white/10 hover:border-brand-red/30 rounded-2xl p-6 transition-colors group"
+              className="bg-white/5 border border-white/10 hover:border-brand-orange/30 rounded-2xl p-6 transition-colors group"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-white font-bold text-lg group-hover:text-brand-red transition-colors">
+                  <h2 className="text-white font-bold text-lg group-hover:text-brand-orange transition-colors">
                     {loc.name}
                   </h2>
                   <p className="text-gray-400 text-sm mt-1 flex items-start gap-1.5">
@@ -68,8 +74,8 @@ export default function LocationsPage() {
                     {loc.address}
                   </p>
                 </div>
-                <div className="shrink-0 w-10 h-10 bg-brand-red/15 rounded-full flex items-center justify-center text-lg">
-                  🍔
+                <div className="shrink-0 w-10 h-10 bg-brand-blue/20 rounded-full flex items-center justify-center">
+                  <BurgerIcon size={28} />
                 </div>
               </div>
 
@@ -86,17 +92,17 @@ export default function LocationsPage() {
               {/* Delivery badges */}
               <div className="mt-4 flex flex-wrap gap-2">
                 {loc.foodpandaUrl && (
-                  <span className="bg-[#D70F64]/15 text-[#E8449A] text-xs font-medium px-2.5 py-1 rounded-full border border-[#D70F64]/30">
-                    🐼 Foodpanda
+                  <span className="inline-flex items-center gap-1 bg-[#D70F64]/15 text-[#E8449A] text-xs font-medium px-2.5 py-1 rounded-full border border-[#D70F64]/30">
+                    <FoodpandaIcon size={14} /> Foodpanda
                   </span>
                 )}
                 {loc.munchiesUrl && (
-                  <span className="bg-orange-900/30 text-orange-400 text-xs font-medium px-2.5 py-1 rounded-full border border-orange-800/50">
-                    🍔 Munchies
+                  <span className="inline-flex items-center gap-1 bg-orange-900/30 text-orange-400 text-xs font-medium px-2.5 py-1 rounded-full border border-orange-800/50">
+                    <BurgerIcon size={14} /> Munchies
                   </span>
                 )}
-                <span className="bg-green-900/30 text-green-400 text-xs font-medium px-2.5 py-1 rounded-full border border-green-800/50">
-                  🟢 Dine-in
+                <span className="inline-flex items-center gap-1 bg-green-900/30 text-green-400 text-xs font-medium px-2.5 py-1 rounded-full border border-green-800/50">
+                  <HalalDot /> Dine-in
                 </span>
               </div>
 
@@ -145,7 +151,7 @@ export default function LocationsPage() {
         </div>
 
         {/* Dine-in note */}
-        <div className="mt-10 bg-brand-red/10 border border-brand-red/30 rounded-2xl p-6 text-center">
+        <div className="mt-10 bg-brand-blue/10 border border-brand-blue/30 rounded-2xl p-6 text-center">
           <p className="text-white font-semibold text-lg mb-1">Prefer to dine in?</p>
           <p className="text-gray-400 text-sm mb-4">
             All branches welcome walk-ins. Reserve your table via WhatsApp for groups of 4+.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LOCATIONS } from "@/data/locations";
+import { FoodpandaIcon, BurgerIcon, DineIcon } from "@/components/icons/AnimatedIcons";
 
 export const metadata: Metadata = {
   title: "Order Online",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 const PLATFORMS = [
   {
     name: "Foodpanda",
-    emoji: "🐼",
+    iconName: "foodpanda",
     color: "#D70F64",
     bgColor: "bg-[#D70F64]",
     borderColor: "border-[#D70F64]/40",
@@ -22,7 +23,7 @@ const PLATFORMS = [
   },
   {
     name: "Munchies",
-    emoji: "🍔",
+    iconName: "burger",
     color: "#FF6B35",
     bgColor: "bg-[#FF6B35]",
     borderColor: "border-[#FF6B35]/40",
@@ -38,19 +39,24 @@ export default function OrderPage() {
   return (
     <div className="pt-16 min-h-screen">
       {/* Header */}
-      <div className="bg-[#111] border-b border-white/10 py-12 px-4 text-center">
-        <p className="text-brand-red text-sm font-semibold uppercase tracking-widest mb-2">
-          Online Ordering
-        </p>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-3">
-          Order Online
-        </h1>
-        <p className="text-gray-400 max-w-xl mx-auto">
-          Get Burger Xpress delivered to your door through your favourite platform.
-        </p>
+      <div className="bg-[#0a0a0a] border-b border-white/8 py-16 px-6 sm:px-10 lg:px-20">
+        <div className="max-w-screen-xl mx-auto">
+          <p className="text-brand-orange text-[10px] font-black uppercase tracking-[0.28em] mb-3">
+            Online Ordering
+          </p>
+          <h1
+            className="font-display font-black text-white leading-tight mb-3"
+            style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)" }}
+          >
+            Order Online
+          </h1>
+          <p className="text-gray-500 text-sm">
+            Get Burger Xpress delivered through your favourite platform.
+          </p>
+        </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-12">
+      <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-20 py-12">
         {/* Platform cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-14">
           {PLATFORMS.map((platform) => {
@@ -63,7 +69,7 @@ export default function OrderPage() {
                 className={`border ${platform.borderColor} ${platform.bgLight} rounded-2xl p-8 flex flex-col gap-5`}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-5xl">{platform.emoji}</span>
+                  <span>{platform.iconName === "foodpanda" ? <FoodpandaIcon size={64} /> : <BurgerIcon size={64} />}</span>
                   <div>
                     <p className="text-white font-bold text-2xl">{platform.name}</p>
                     <p className={`text-sm ${platform.textColor}`}>{platform.description}</p>
@@ -116,9 +122,9 @@ export default function OrderPage() {
                       href={loc.foodpandaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs bg-[#D70F64]/15 text-[#E8449A] border border-[#D70F64]/30 hover:bg-[#D70F64]/25 px-3 py-1.5 rounded-full transition-colors"
+                      className="inline-flex items-center gap-1 text-xs bg-[#D70F64]/15 text-[#E8449A] border border-[#D70F64]/30 hover:bg-[#D70F64]/25 px-3 py-1.5 rounded-full transition-colors"
                     >
-                      🐼 Foodpanda
+                      <FoodpandaIcon size={14} /> Foodpanda
                     </a>
                   )}
                   {loc.munchiesUrl && (
@@ -126,9 +132,9 @@ export default function OrderPage() {
                       href={loc.munchiesUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs bg-orange-900/30 text-orange-400 border border-orange-800/50 hover:bg-orange-900/50 px-3 py-1.5 rounded-full transition-colors"
+                      className="inline-flex items-center gap-1 text-xs bg-orange-900/30 text-orange-400 border border-orange-800/50 hover:bg-orange-900/50 px-3 py-1.5 rounded-full transition-colors"
                     >
-                      🍔 Munchies
+                      <BurgerIcon size={14} /> Munchies
                     </a>
                   )}
                   {!loc.foodpandaUrl && !loc.munchiesUrl && (
@@ -141,8 +147,8 @@ export default function OrderPage() {
         </div>
 
         {/* Dine-in CTA */}
-        <div className="bg-brand-red/10 border border-brand-red/30 rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6">
-          <div className="text-4xl">🍽️</div>
+        <div className="bg-brand-blue/10 border border-brand-blue/30 rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6">
+          <DineIcon size={56} />
           <div className="flex-1 text-center sm:text-left">
             <p className="text-white font-bold text-xl mb-1">Prefer to dine in?</p>
             <p className="text-gray-400 text-sm">

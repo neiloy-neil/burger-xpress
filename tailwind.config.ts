@@ -10,17 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
+          blue: "#1B3D8F",
+          "blue-dark": "#142F6E",
+          orange: "#F5A020",
+          "orange-dark": "#D4880A",
           red: "#C0392B",
           "red-dark": "#922B21",
-          "red-light": "#E74C3C",
-          orange: "#E67E22",
           cream: "#FDF6EC",
           charcoal: "#1A1A1A",
           "gray-warm": "#2C2C2C",
         },
       },
       fontFamily: {
-        display: ["Georgia", "serif"],
+        display: ["'Arial Black'", "Impact", "sans-serif"],
         body: ["system-ui", "sans-serif"],
       },
       backgroundImage: {

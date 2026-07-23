@@ -73,7 +73,11 @@ export default function MenuPage() {
 
       <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-20 py-10">
         {/* Category filter tabs */}
-        <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide mb-8">
+        <div className="relative mb-8">
+        <div
+          className="flex gap-2 overflow-x-auto pb-3 scroll-smooth"
+          style={{ scrollbarWidth: "thin", scrollbarColor: "#374151 transparent" }}
+        >
           <button
             onClick={() => setActiveCategory("all")}
             className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
@@ -101,6 +105,9 @@ export default function MenuPage() {
               </button>
             );
           })}
+        </div>
+        {/* Right-fade hint — hidden once user scrolls to end */}
+        <div className="pointer-events-none absolute right-0 top-0 bottom-3 w-16 bg-gradient-to-l from-[#0f0f0f] to-transparent" />
         </div>
 
         {/* Results count */}
